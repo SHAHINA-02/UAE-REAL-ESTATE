@@ -77,7 +77,7 @@ export default function PriceChart({
               titleColor: "#f0e8d8",
               bodyColor: "#a09070",
               callbacks: {
-                label: (ctx) => ` ${ctx.dataset.label}: AED ${ctx.parsed.y.toLocaleString()}/sqft`,
+              label: (ctx) => ` ${ctx.dataset.label}: AED ${(ctx.parsed.y ?? 0).toLocaleString()}/sqft`,  
               },
             },
           },
