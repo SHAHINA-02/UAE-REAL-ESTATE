@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* UAE Desert Gold Palette */
+  --gold: #c8861e;
+  --gold-light: #e8c06e;
+  --gold-dark: #875212;
+  --sand: #f2d9a8;
+
+  /* Dark Navy Base */
+  --bg-primary: #080d14;
+  --bg-secondary: #0f1825;
+  --bg-card: #131f2e;
+  --bg-card-hover: #1a2a3e;
+  --border: rgba(200, 134, 30, 0.2);
+  --border-light: rgba(200, 134, 30, 0.1);
+
+  /* Text */
+  --text-primary: #f0e8d8;
+  --text-secondary: #a09070;
+  --text-muted: #5a5040;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 3px;
+}
+
+/* Gold gradient text utility */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(19, 31, 46, 0.8);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+/* Gold button */
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.btn-gold:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Chat message styles */
+.message-user {
+  background: linear-gradient(135deg, rgba(200, 134, 30, 0.2), rgba(135, 82, 18, 0.2));
+  border: 1px solid var(--border);
+}
+
+.message-ai {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+.shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Fade in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Property card hover effect */
+.property-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+  box-shadow: 0 8px 32px rgba(200, 134, 30, 0.15);
+}
+
+/* Streaming cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink::after {
+  content: "▋";
+  animation: blink 0.8s step-end infinite;
+  color: var(--gold);
+  margin-left: 2px;
+}
+
+/* Number counter */
+.stat-number {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Map container */
+.map-container {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Prose formatting for AI messages */
+.ai-prose h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--gold-light);
+  margin: 1rem 0 0.5rem;
+}
+
+.ai-prose ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ai-prose ul li::before {
+  content: "◆ ";
+  color: var(--gold);
+  font-size: 0.6em;
+  vertical-align: middle;
+}
+
+.ai-prose strong {
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+.ai-prose p {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
