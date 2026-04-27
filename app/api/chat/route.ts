@@ -6,14 +6,12 @@ export async function POST(req: NextRequest) {
     const { messages } = await req.json();
 
     const apiKey = process.env.GROQ_API_KEY;
-    if (!apiKey || apiKey === "gsk_your_key_here") {
+    if (!apiKey) {
       return NextResponse.json(
-        { error: "GROQ_API_KEY is missing in .env.local" },
+        { error: "GROQ_API_KEY missing" },
         { status: 500 }
       );
     }
-
-    const systemPrompt = buildSystemPrompt();
 
     const response = await fetch(
       "https://api.groq.com/openai/v1/chat/completions",
@@ -26,7 +24,7 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           model: "llama-3.3-70b-versatile",
           messages: [
-            { role: "system", content: systemPrompt },
+            { role: "system", content: buildSystemPrompt() },
             ...messages.map((m: { role: string; content: string }) => ({
               role: m.role,
               content: m.content,
@@ -68,17 +66,14 @@ export async function POST(req: NextRequest) {
 
             try {
               const parsed = JSON.parse(data);
-              const text =
-                parsed?.choices?.[0]?.delta?.content ?? "";
+              const text = parsed?.choices?.[0]?.delta?.content ?? "";
               if (text) {
                 controller.enqueue(
-                  encoder.encode(
-                    `data: ${JSON.stringify({ text })}\n\n`
-                  )
+                  encoder.encode(`data: ${JSON.stringify({ text })}\n\n`)
                 );
               }
             } catch {
-              // skip malformed chunks
+              // skip
             }
           }
         }
@@ -97,9 +92,6 @@ export async function POST(req: NextRequest) {
     });
   } catch (error) {
     console.error("Chat API error:", error);
-    return NextResponse.json(
-      { error: String(error) },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: String(error) }, { status: 500 });
   }
 }
