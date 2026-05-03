@@ -13,8 +13,17 @@ An AI-powered real estate intelligence platform for the UAE — combining a conv
 
 **LIVE DEMO:** https://uae-real-estate-kappa.vercel.app
 
-> SCREENSHOTS-
-https://github.com/SHAHINA-02/UAE-REAL-ESTATE/blob/90855b64417f2e4db26afab27b9f7f7109df3743/ZAYED%20SC/Screenshot%202026-04-29%20022507.png
+>SCREENSHOTS
+<img width="1898" height="876" alt="Screenshot 2026-04-29 022507" src="https://github.com/user-attachments/assets/dae5eb6d-4ce1-4d4a-826b-824b6709932e" />
+<img width="1910" height="879" alt="Screenshot 2026-04-29 022522" src="https://github.com/user-attachments/assets/cb420ba7-6e58-4b0e-8949-0851bff07206" />
+<img width="1908" height="875" alt="Screenshot 2026-04-29 022557" src="https://github.com/user-attachments/assets/92201e4d-188f-4a99-bd51-9b53651fd7b4" />
+<img width="1904" height="875" alt="Screenshot 2026-04-29 022618" src="https://github.com/user-attachments/assets/cc66aff0-1f33-470a-9887-bd17f323f3d1" />
+<img width="1902" height="868" alt="Screenshot 2026-04-29 022638" src="https://github.com/user-attachments/assets/b3140502-9fed-400f-b562-c3db35f8689d" />
+
+
+
+
+
 ---
 
 ## ABOUT
